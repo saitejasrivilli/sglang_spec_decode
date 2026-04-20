@@ -36,18 +36,19 @@
 sglang_spec_decode/
 ├── sglang_patch/
 │   ├── managers/router/
-│   │   ├── radix_cache.py        ← provisional KV cache API  ← hardest piece
-│   │   ├── model_runner.py       ← speculative_decode_step()
-│   │   └── scheduler.py         ← preemption evicts provisional blocks
+│   │   ├── radix_cache.py         ← provisional KV cache API  ← hardest piece
+│   │   ├── model_runner.py        ← speculative_decode_step()
+│   │   ├── scheduler.py           ← preemption evicts provisional blocks
+│   │   └── spec_decode_stats.py   ← acceptance rate logging
 │   └── server/
-│       └── server_args.py        ← --draft-model-path, --num-speculative-tokens
+│       └── server_args.py         ← --draft-model-path, --num-speculative-tokens
 ├── benchmarks/
-│   ├── run_benchmark.py          ← wall-clock latency + throughput
-│   ├── acceptance_vs_temp.py     ← acceptance rate sweep + chart
-│   └── sharegpt_loader.py        ← real ShareGPT-200 prompts (not synthetic)
+│   ├── run_benchmark.py           ← wall-clock latency + throughput
+│   ├── acceptance_vs_temp.py      ← acceptance rate sweep + chart
+│   └── sharegpt_loader.py         ← real ShareGPT-200 prompts (not synthetic)
 ├── configs/
-│   ├── cluster.yaml              ← GPU indices, ports, TP size
-│   └── experiment.yaml           ← model paths, K, temperatures
+│   ├── cluster.yaml               ← GPU indices, ports, TP size
+│   └── experiment.yaml            ← model paths, K, temperatures
 └── tests/
 ├── test_radix_provisional.py  ← 16 tests, KV cache correctness
 └── test_acceptance_math.py    ← 6 tests, losslessness proof
@@ -75,13 +76,13 @@ radix_cache.evict_provisional(seq_id)                  # frees rejected blocks
 
 Draft tokens are tagged as provisional and invisible to prefix lookups until
 the target model verifies them. On rejection at position k, blocks k..K-1 are
-freed immediately — before the block manager can reallocate them. This is the
+freed immediately before the block manager can reallocate them. This is the
 only correct order. The unit tests verify that no block is leaked or
 double-freed across all rejection patterns.
 
 **Why not patch the trie directly?** The RadixAttention trie is shared across
 all concurrent requests. Any mutation during a draft phase would race with
-other sequences' prefix lookups. The provisional layer gives us atomicity
+other sequences' prefix lookups. The provisional layer gives atomicity
 with zero locking overhead — it is per-sequence and single-threaded.
 
 ---
@@ -92,78 +93,59 @@ Standard rejection sampling accepts draft token `d` with probability
 `min(1, p(d)/q(d))` where p is the target distribution and q is the draft.
 On rejection, a correction token is drawn from `max(0, p − q) / Z`.
 
-**Decision:** Use this exact criterion rather than a simpler heuristic
-(e.g. top-k matching) because:
+**Decision:** Use this exact criterion rather than a simpler heuristic because:
 
-- It is **mathematically lossless** — the output distribution is identical
-  to target-only sampling regardless of acceptance rate.
-- The losslessness is empirically verified in `test_acceptance_math.py`
+- It is **mathematically lossless** — output distribution is identical to
+  target-only sampling regardless of acceptance rate.
+- Losslessness is empirically verified in `test_acceptance_math.py`
   (max absolute distribution error < 0.04 over 5,000 samples).
-- Lossy approximations trade output quality for speed; for a production
-  deployment at NVIDIA the tradeoff is the user's choice, not the
-  infrastructure's.
+- Lossy approximations trade output quality for speed — that tradeoff
+  belongs to the user, not the infrastructure.
 
 ---
 
 ### 3. Config-Driven, Zero Hardcoding
 
-Every numeric constant — GPU indices, tensor-parallel size, model paths,
-K, draft overhead, temperature sweep values — lives in `configs/cluster.yaml`
-or `configs/experiment.yaml`. All Python modules import from a single
-`config_loader.py`. Shell scripts read config via a Python one-liner.
+Every constant — GPU indices, tensor-parallel size, model paths, K, draft
+overhead, temperature sweep values — lives in `configs/cluster.yaml` or
+`configs/experiment.yaml`. All modules import from a single `config_loader.py`.
 
 **Why?** LLM inference infrastructure gets reused across models, hardware
-generations, and teams. A codebase where changing the number of GPUs requires
-grep-and-replace is not production infrastructure — it is a script. Making
-configs the single source of truth also makes the benchmark reproducible:
-the JSON in `benchmarks/results/` records exactly which config produced it.
+generations, and teams. Making configs the single source of truth also makes
+benchmarks reproducible — the JSON in `benchmarks/results/` records exactly
+which config produced it.
 
 ---
 
 ### 4. Scheduler Preemption Evicts Provisional Blocks
 
-When the scheduler preempts a sequence (swaps it out due to memory pressure),
-any in-flight draft tokens for that sequence must have their KV blocks freed
-*before* the block manager reclaims them for a different sequence.
+When the scheduler preempts a sequence, in-flight draft KV blocks must be
+freed *before* the block manager reclaims them for a different sequence.
 
 **Decision:** Override `Scheduler.preempt()` to call `evict_provisional()`
-on all preempted sequence IDs before delegating to the parent scheduler.
-
-Missing this step does not crash — it produces a use-after-free of GPU memory
-that causes the target model to read stale KV state from a different sequence.
-The outputs are wrong and there is no error signal. This is why the unit test
-`test_no_blocks_leaked_across_multiple_sequences` explicitly checks that
-committed ∪ freed == all allocated, with no overlap.
+before delegating to the parent. Missing this produces a use-after-free of
+GPU memory — the target model reads stale KV state from a different sequence,
+outputs are wrong, and there is no error signal.
 
 ---
 
 ### 5. Draft Model Selection: TinyLlama-1.1B for Llama-3-8B
 
-**Decision:** TinyLlama-1.1B-Chat shares the Llama tokenizer vocabulary with
-Llama-3-8B. This is load-bearing: the acceptance criterion requires computing
-`p(d) / q(d)` where d is a token id. If the two models use different
-vocabularies, token ids are not comparable and the math is wrong.
-
-Shared vocabulary also means no token remapping at the acceptance step —
-the draft logits and target logits index the same vocab dimension, and the
-correction distribution is computed directly.
-
-Size ratio ≈ 8× gives draft overhead ≈ 0.12 (measured). The theoretical
-speedup formula `1 + α·K/(1 + K·0.12)` predicts 2.5–3.2× at practical
-temperatures, consistent with published SGLang benchmarks.
+TinyLlama-1.1B-Chat shares the Llama tokenizer vocabulary with Llama-3-8B.
+This is load-bearing: the acceptance criterion requires computing `p(d)/q(d)`
+where d is a token id. Different vocabularies make token ids incomparable and
+the math wrong. Shared vocabulary also eliminates token remapping at every
+accept/reject step. Size ratio ≈ 8× gives draft overhead ≈ 0.12.
 
 ---
 
 ## Environment Note
 
-SGLang 0.2.0 depends on vLLM 0.5.3 internal APIs
-(`QKVParallelLinear.prefix`, `GroupCoordinator`, `CustomOp`, etc.).
-Running both SGLang and a vLLM baseline server in the **same Python
-environment** is not supported — the packages overwrite each other's
-vLLM installations. Production deployment uses separate containers or
-conda environments per server. The speculative decoding implementation
-is complete and unit-tested; the end-to-end server benchmark requires
-that isolation.
+SGLang 0.2.0 depends on vLLM 0.5.3 internal APIs. Running both in the same
+Python environment is not supported — they overwrite each other's vLLM
+installations. Production deployment uses separate containers per server.
+The speculative decoding implementation is complete and unit-tested; the
+end-to-end server benchmark requires that isolation.
 
 ---
 
