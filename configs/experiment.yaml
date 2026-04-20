@@ -1,0 +1,51 @@
+# configs/experiment.yaml
+# ─────────────────────────────────────────────────────────────────────────────
+# Experiment parameters.  Edit model_path / draft_model_path to point at your
+# local weights or HF repo IDs.  Everything else has sensible defaults.
+# ─────────────────────────────────────────────────────────────────────────────
+
+models:
+  # Target (large) model — the model whose distribution we care about
+  target:
+    # HF repo ID or absolute path on disk
+    path: "meta-llama/Meta-Llama-3-8B"
+    # dtype: bfloat16 | float16 | float32
+    dtype: "bfloat16"
+
+  # Draft (small) model — must share tokenizer vocab with target
+  draft:
+    path: "TinyLlama/TinyLlama-1.1B-Chat-v1.0"
+    dtype: "bfloat16"
+
+speculative_decoding:
+  # Number of draft tokens per step (K).  Typical range: 2–8.
+  num_speculative_tokens: 4
+
+  # Standard acceptance sampling (0.0) or add a floor threshold
+  acceptance_threshold: 0.0
+
+  # Whether to use greedy (argmax) or temperature sampling for the draft
+  draft_sampling: "temperature"   # greedy | temperature
+
+benchmark:
+  # Number of prompts from ShareGPT to use
+  num_prompts: 200
+
+  # Output tokens per request
+  max_new_tokens: 128
+
+  # Temperatures to sweep in the acceptance-rate vs temperature analysis
+  temperature_sweep: [0.0, 0.3, 0.6, 0.8, 1.0, 1.2]
+
+  # Where to write results (JSON + PNG)
+  output_dir: "benchmarks/results"
+
+  # Seconds to wait for server readiness before aborting
+  server_ready_timeout_s: 300
+
+logging:
+  # Acceptance-rate log interval (every N decode steps)
+  log_every_n_steps: 100
+
+  # Directory for server-side logs
+  log_dir: "logs"

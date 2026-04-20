@@ -1,0 +1,826 @@
+{
+  "timestamp": "20260420_181252",
+  "config": {
+    "num_prompts": 200,
+    "max_new_tokens": 128,
+    "temperature": 1.0
+  },
+  "aggregated": [
+    {
+      "label": "vllm_baseline",
+      "n_requests": 200,
+      "n_errors": 200,
+      "p50_latency_s": NaN,
+      "p95_latency_s": NaN,
+      "p99_latency_s": NaN,
+      "p50_ttft_s": null,
+      "p99_ttft_s": null,
+      "throughput_tok_per_s": 0.0,
+      "avg_acceptance_rate": null
+    }
+  ],
+  "raw": {
+    "vllm_baseline": [
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      },
+      {
+        "latency_s": null,
+        "error": "404 Client Error: Not Found for url: http://localhost:8000/v1/completions"
+      }
+    ]
+  }
+}

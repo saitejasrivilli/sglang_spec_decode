@@ -1,0 +1,35 @@
+# configs/cluster.yaml
+# ─────────────────────────────────────────────────────────────────────────────
+# Hardware constants for a 4× NVIDIA A30 node.
+# Edit this file to match YOUR cluster topology before running anything.
+# All scripts and Python modules read from here — nothing is hardcoded.
+# ─────────────────────────────────────────────────────────────────────────────
+
+cluster:
+  # Indices of the A30 GPUs to use (0-indexed, as shown by nvidia-smi)
+  gpu_ids: [0, 1, 2, 3]
+
+  # Total VRAM per GPU in GiB (A30 = 24 GiB)
+  vram_per_gpu_gib: 24
+
+  # Interconnect: NVLink or PCIe  (affects tensor-parallel efficiency)
+  interconnect: "NVLink"
+
+  # Ray head node address (localhost if single-node cluster)
+  ray_head_address: "auto"
+
+  # Filesystem path where Hugging Face model weights are cached
+  # Set HF_HOME env var OR override here
+  hf_cache_dir: null   # null = use $HF_HOME or ~/.cache/huggingface
+
+servers:
+  sglang:
+    host: "0.0.0.0"
+    port: 30000
+    # Tensor-parallel degree — must equal len(gpu_ids) or a divisor of it
+    tensor_parallel_size: 4
+
+  vllm:
+    host: "0.0.0.0"
+    port: 8000
+    tensor_parallel_size: 4
